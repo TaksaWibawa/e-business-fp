@@ -165,7 +165,7 @@ if df_customers is not None and df_products is not None and df_txs is not None:
 
         bar_chart = (
             alt.Chart(monthly_transaction_count)
-            .mark_bar(size=35, color="lightcoral")
+            .mark_bar(size=30, color="lightcoral")
             .encode(x=alt.X("Month:T", title="Month"), y=alt.Y("Invoice:Q", title="Number of Transactions"), tooltip=["Month", "Invoice"])
             .properties(width="container", height=400)
         )
@@ -178,7 +178,7 @@ if df_customers is not None and df_products is not None and df_txs is not None:
 
         bar_chart = (
             alt.Chart(monthly_revenue)
-            .mark_bar(size=35, color="lightcoral")
+            .mark_bar(size=30, color="lightcoral")
             .encode(x=alt.X("Month:T", title="Month"), y=alt.Y("Total Amount:Q", title="Total Amount"), tooltip=["Month", "Total Amount"])
             .properties(width="container", height=400)
         )
@@ -193,7 +193,7 @@ if df_customers is not None and df_products is not None and df_txs is not None:
         st.markdown("### Top 10 Customers by Transaction Value")
         bar_chart = (
             alt.Chart(top10_customers)
-            .mark_bar(size=35, color="lightcoral")
+            .mark_bar(size=30, color="lightcoral")
             .encode(
                 x=alt.X("Customer ID:N", title="Customer ID", sort="y"),
                 y=alt.Y("Total Amount:Q", title="Total Amount"),
@@ -210,7 +210,7 @@ if df_customers is not None and df_products is not None and df_txs is not None:
         st.markdown("### Top 10 Products by Transaction Value")
         bar_chart = (
             alt.Chart(top10_products)
-            .mark_bar(size=35, color="lightcoral")
+            .mark_bar(size=30, color="lightcoral")
             .encode(
                 x=alt.X("StockCode:N", title="Product Code", sort="y"),
                 y=alt.Y("Total Amount:Q", title="Total Amount"),
