@@ -150,10 +150,20 @@ if df_customers is not None and df_products is not None and df_txs is not None:
     st.title(f":bar_chart: Gift Shop Transactional Dashboard ({selected_year})")
 
     col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Total Revenue", f"${total_revenue:,.2f}", f"${revenue_diff:,.2f}")
+    col1.metric("Total Revenue", f"${total_revenue:,.2f}", f"${revenue_diff:,.2f}", delta_color="inverse" if revenue_diff < 0 else "normal")
     col2.metric("Total Transactions", total_transactions, transactions_diff)
-    col3.metric("Average Revenue per Day", f"${average_revenue_per_day:,.2f}", f"${average_revenue_per_day_diff:,.2f}")
-    col4.metric("Average Revenue per Month", f"${average_revenue_per_month:,.2f}", f"${average_revenue_per_month_diff:,.2f}")
+    col3.metric(
+        "Average Revenue per Day",
+        f"${average_revenue_per_day:,.2f}",
+        f"${average_revenue_per_day_diff:,.2f}",
+        delta_color="inverse" if average_revenue_per_day_diff < 0 else "normal",
+    )
+    col4.metric(
+        "Average Revenue per Month",
+        f"${average_revenue_per_month:,.2f}",
+        f"${average_revenue_per_month_diff:,.2f}",
+        delta_color="inverse" if average_revenue_per_month_diff < 0 else "normal",
+    )
 
     # Second section: monthly transaction count and monthly revenue
     col1, col2 = st.columns(2)
